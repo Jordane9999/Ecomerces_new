@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+{% block title %}
+    <title>{{ category.name }}</title>
+{% endblock  %}
+
+{% block content %}    
+
+    <section>
+        <div class="container">
+            <div class="row">
+                {% for product in products%}
+                    <div class="col-md-3" id="ac">
+                        <div class="card">
+                            <img src="{{ product.thumbnail.url}}" class="card-img-top" alt="{{ product.name }}" width="200px" height="300px">
+                            <div class="card-body">
+                                <div id="" class="card-title">{{ product.name }}</div>
+                                <div id="" style="color: orange;font-weight: bold;" class="card-text">{{ product.price }} FCFA</div>
+                                <a href="{{ product.get_absolute_url }}" class="btn btn-warning">Voire</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>           
+        </div>       
+    </section>
+    
+{% endblock  %}

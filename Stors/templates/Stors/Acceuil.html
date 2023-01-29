@@ -1,0 +1,254 @@
+{% extends "index.html" %} {% block title %}
+<title>Acceuil</title>
+{% endblock %}
+
+{% block content %}
+<section>
+  {% if name is not None %}
+
+  <div class="produit">
+    <h3 class="text-center text-uppercase fs-1 fw-bold">Recher de Produits</h3>
+    <div class="container">
+      <div class="row">
+        {% for product in products%}
+          <div class="col-md-3" id="ac">
+            <div class="card">
+              <img src="{{ product.thumbnail.url}}" class="card-img-top" alt="{{ product.name }}" width="200px"
+                height="300px" />
+              <a href="#{{ product.groupe.id }}" class="text-center text-uppercase badge bg-primary"
+                id="recherche">{{ product.groupe.name }}</a>
+              <div class="card-body">
+                <div id="" class="card-title">{{ product.name }}</div>
+                <div id="" style="color: orange; font-weight: bold" class="card-text">
+                  {{ product.price }} FCFA
+                </div>
+                <a href="{{ product.get_absolute_url }}" class="btn btn-warning">Voire</a>
+                {% if user.is_authenticated %}
+                  <button id="{{ product.id }}" class="btn ton btn-success">
+                    Ajouter
+                  </button>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+<h3 class="text-center fs-1 text-danger">{{ messages }}</h3>
+<!-------------------------------------------------------------- Boucle sur les produit -------------------------------------------------------------->
+
+  <div class="produit">
+    <div class="container">
+      <div class="row">
+  
+        <!-- Parcoure du produit friperies -->  
+         
+        <h3><a href="/category/category.id">{{ name_friperies }}</a></h3>
+        {% for product in friperies %}
+        <div class="col-md-3 mb-2" >
+          <div class="card" id="produit{{ product.id }}">
+            <img src="{{ product.thumbnail.url}}" class="card-img-top" alt="{{ product.name }}" width="200px" height="300px" />
+            <div class="card-body">
+              <div id="" class="card-title">{{ product.name }}</div>
+              <div id="" style="color: orange; font-weight: bold" class="card-text">
+                {{ product.price }} FCFA
+              </div>
+              <a href="{{ product.get_absolute_url }}" class="btn btn-warning">Voire</a>
+              {% if user.is_authenticated %}
+                <button id="{{ product.id }}" class="btn ton btn-success" onclick="clickmoi('{{ product.id }}')" >
+                  Ajouter
+                </button>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        
+        {% endfor %}
+        
+        <div class="row mt-3">
+          <div class="col-md-3 offset-md-4">
+            <ul class="pagination">
+              {% if friperies.has_previous %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ friperies.previous_page_number }}">Precedent</a>
+              </li>
+              {% endif %}
+        
+              <li class="page-item active">
+                <a class="page-link" href="?page={{ friperies.number }}">{{ friperies.number }}</a>
+              </li>
+        
+              {% if friperies.has_next %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ friperies.next_page_number }}">Suivant</a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+
+  
+        <!-- Parcoure du produit vehicule -->
+        
+          <h3><a href="/category/category.id">{{ name_vehicule }}</a></h3>
+          {% for product in vehicule %}
+          <div class="col-md-3 mb-4" id="produit{{ product.id }}">
+            <div class="card" id="produitts">
+              <img src="{{ product.thumbnail.url}}" class="card-img-top" alt="{{ product.name }}" width="200px"
+                height="300px" />
+              <div class="card-body">
+                <div id="" class="card-title">{{ product.name }}</div>
+                <div id="" style="color: orange; font-weight: bold" class="card-text">
+                  {{ product.price }} FCFA
+                </div>
+                <a href="{{ product.get_absolute_url }}" class="btn btn-warning">Voire</a>
+                {% if user.is_authenticated %}
+                <button id="{{ product.id }}" class="btn ton btn-success">
+                  Ajouter
+                </button>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <div class="row mt-3">
+            <div class="col-md-3 offset-md-4">
+              <ul class="pagination">
+                {% if vehicule.has_previous %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ vehicule.previous_page_number }}">Precedent</a>
+                </li>
+                {% endif %}
+          
+                <li class="page-item active">
+                  <a class="page-link" href="?page={{ vehicule.number }}">{{ vehicule.number }}</a>
+                </li>
+          
+                {% if vehicule.has_next %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ vehicule.next_page_number }}">Suivant</a>
+                </li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+  
+        <!-- Parcoure du produit electronic -->
+        
+          <h3><a href="/category/category.id">{{ name_electronic }}</a></h3>
+          {% for product in electronic %}
+          <div class="col-md-3 mb-4" id="produit{{ product.id }}">
+            <div class="card" id="produitts">
+              <img src="{{ product.thumbnail.url}}" class="card-img-top" alt="{{ product.name }}" width="200px"
+                height="300px" />
+              <div class="card-body">
+                <div id="" class="card-title">{{ product.name }}</div>
+                <div id="" style="color: orange; font-weight: bold" class="card-text">
+                  {{ product.price }} FCFA
+                </div>
+                <a href="{{ product.get_absolute_url }}" class="btn btn-warning">Voire</a>
+                {% if user.is_authenticated %}
+                <button id="{{ product.id }}" class="btn ton btn-success">
+                  Ajouter
+                </button>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <div class="row mt-3">
+            <div class="col-md-3 offset-md-4">
+              <ul class="pagination">
+                {% if electronic.has_previous %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ electronic.previous_page_number }}">Precedent</a>
+                </li>
+                {% endif %}
+          
+                <li class="page-item active">
+                  <a class="page-link" href="?page={{ electronic.number }}">{{ electronic.number }}</a>
+                </li>
+          
+                {% if electronic.has_next %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ electronic.next_page_number }}">Suivant</a>
+                </li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+    
+  
+        <!-- Parcoure du produit other -->
+       
+          <h3><a href="/category/category.id">{{ name_other }}</a></h3>
+          {% for product in other %}
+          <div class="col-md-3 mb-4" id="produit{{ product.id }}">
+            <div class="card" id="produitts">
+              <img src="{{ product.thumbnail.url}}" class="card-img-top" alt="{{ product.name }}" width="200px"
+                height="300px" />
+              <div class="card-body">
+                <div id="" class="card-title">{{ product.name }}</div>
+                <div id="" style="color: orange; font-weight: bold" class="card-text">
+                  {{ product.price }} FCFA
+                </div>
+                <a href="{{ product.get_absolute_url }}" class="btn btn-warning">Voire</a>
+                {% if user.is_authenticated %}
+                <button id="{{ product.id }}" class="btn ton btn-success">
+                  Ajouter
+                </button>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <div class="row mt-3">
+            <div class="col-md-3 offset-md-4">
+              <ul class="pagination">
+                {% if other.has_previous %}
+                  <li class="page-item">
+                    <a class="page-link" href="?page={{ other.previous_page_number }}">Precedent</a>
+                  </li>
+                {% endif %}
+          
+                <li class="page-item active">
+                  <a class="page-link" href="?page={{ other.number }}">{{ other.number }}</a>
+                </li>
+          
+                {% if other.has_next %}
+                  <li class="page-item">
+                    <a class="page-link" href="?page={{ other.next_page_number }}">Suivant</a>
+                  </li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+      </div>
+
+    </div> <!--fin-->
+    
+    
+  
+  </div>
+
+</section>
+<script type="text/javascript">
+  const clickmoi = function (e){
+   // alert("Je suis le numero " + `#${e}`)
+   var i= 0
+    $(document).on('click',`#${e}`, function(t){
+      t.preventDefault()
+      console.log("click " + `#${e}`)
+      i++
+      alert("Je suis le numero " + `#${e}\nTu ma clicker ` + i )
+      console.log("tu ma clicker " + i +" fois")
+    })
+  }  
+
+  
+</script>
+
+{% endblock %}

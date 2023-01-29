@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    <title>Supprimer</title>
+{% endblock  %}
+
+{% block content %}
+
+   <center>
+        <h1>etes vous sur de Supprimer le Produit "{{ stors.name }}"</h1>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn  btn-danger">Delete</button>
+            <a href="{% url 'administrateur' %}" class="btn  btn-primary">Cancel</a>
+        </form>
+   </center>
+{% endblock  %}

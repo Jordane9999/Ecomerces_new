@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    <title>Editer un Produit</title>
+{% endblock  %}
+
+{% block content %}
+
+    <center class="update">
+        <h1>Mise a jour du  Produit</h1>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn  btn-primary">Creer</button>
+        </form>
+    </center>
+
+{% endblock  %}
+
+
+

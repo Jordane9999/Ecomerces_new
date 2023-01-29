@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    <title>Ajourter</title>
+{% endblock  %}
+
+{% block content %}   
+   <center>
+        <h1>Ajourter un Produit</h1>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn  btn-primary">Creer</button>
+        </form>
+   </center>
+{% endblock  %}

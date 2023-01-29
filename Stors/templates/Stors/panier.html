@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+
+{% block title %}
+    <title>Panier</title>
+{% endblock  %}
+
+{% block content %}
+
+    <section>
+        <div class="container">
+            <div class="row">
+                {% for order in orders %}
+                    <div class="col-md-3" id="ac">
+                        <div class="card">
+                            <img src="{{ order.product.thumbnail.url}}" class="card-img-top" alt="{{ order.product.name }}" width="200px" height="300px">
+                            <div class="card-body">
+                                <div id="" class="card-title">{{ order.product.name }}</div>
+                                <div id="" class="card-title">Qté : {{ order.quantity}} dans le panier</div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>           
+        </div>       
+    </section>
+
+    <div class=" text text-center">
+        <a href="{% url 'delete' %}" class="btn btn-danger" type="button">Supprimer</a>
+        <a href="{% url 'commande' %}" class="btn btn-primary mr-2" type="button">Comander</a>
+    </div>
+
+{% endblock  %}

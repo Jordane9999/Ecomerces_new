@@ -1,0 +1,71 @@
+{% extends "index.html" %}
+
+{% load myfilter %}
+
+{% block title %}
+    <title>Commande</title>
+{% endblock  %}
+
+{% block content %}
+
+    
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered border-3 border-dark">
+                        <thead>
+                          <tr>
+                            <th scope="col">Produit</th>
+                            <th scope="col">Quantiter</th>
+                            <th scope="col">Prix Unitaire</th>
+                            <th scope="col">Prix Quantiter</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for order in orders %}
+                            <a style="display: none" id="tbid{{ order.id}}">{{ order.id}}</a> 
+                            <tr>
+                                <td>{{ order.product.name }}</td>
+                                <td id="quantiter{{ order.id}}">{{ order.quantity}} </td>
+                                <td id="prix{{ order.id}}">{{ order.product.price}}</td>
+                                <td id="pqtet{{ order.id}}">{% multiplication order.quantity  order.product.price %}</td>
+                            </tr>
+                          {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <th scope="col" class="text text-center">TOTAL</th>
+                            <th scope="col" class="text text-center"> - </th>
+                            <th scope="col" class="text text-center"> - </th>
+                            <th scope="col" id="prixquantitertotal" class="text text-center">{{ total }}</th>
+                        </tfoot>
+                    </table>
+                </div>
+                <h1 class="text text-center text-primary text-decoration-underline">Contact Du client</h1>
+                <form class="row g-2" >
+                    <div class="col-md-6">
+                      <label for="nom" class="form-label">Nom</label>
+                      <input type="text" class="form-control" id="nom" value="{{ user.first_name }}">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="prenom" class="form-label">Prenom</label>
+                      <input type="text" class="form-control" id="prenom" value="{{ user.last_name }}">
+                    </div>
+                    <div class="col-md-12">
+                      <label for="mail" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="mail" value="{{ user.email }}">
+                    </div>
+                    <div class="col-md-12">
+                      <label for="numero" class="form-label">Phone-Number</label>
+                      <input type="text" class="form-control" id="numero" name="numero" placeholder="00228 92 35 88 21 ">
+                    </div>
+                    
+                    <div class="col-12">
+                      <a href="{% url 'recus' %}" class="btn btn-primary">Commander</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </section>
+{% endblock  %}

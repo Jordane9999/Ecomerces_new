@@ -1,0 +1,140 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}
+    <title>inscription</title>
+{% endblock  %}
+
+{% block content %}  
+    <center>
+        <div>
+            <h1 class="text mt-4" id="hi">Inscription</h1>
+
+            {% for message in messages %}
+                <strong style="color: red; margin-top: 5px;">{{ message }}</strong> 
+            {% endfor %}
+            <h3 style="color: red; margin-top: 5px;" class="text mt-2">{{ message }}</h3>
+        </div>
+        <form action="" method="post" enctype="multipart/form-data" id="cfs">
+            {% csrf_token %}            
+            <div>
+                <p>
+                    <label for="username">Nom d'utilisateur  </label>
+                    <input type="text" id="username" name="username" placeholder="Nom d'utilisateur">
+                </p>
+                <p>
+                    <label for="name">Nom </label>
+                    <input type="text" id="name" name="name" placeholder="Nom">
+                </p>
+                <p>
+                    <label for="prenom">Prenom </label>
+                    <input type="text" id="prenom" name="prenom" placeholder="Prenom">
+                </p>
+                <p>
+                    <label for="email">Email  </label>
+                    <input type="email" id="email" name="email" placeholder="Addresse email">
+                </p>
+                <p>
+                    <label for="password" style="position: relative;top: 12px;">Mot de passe  </label>
+                    <div class="mdp">
+                        <input type="password" id="password" name="password" placeholder="Mot de passe">
+                        <i class="fa-solid fa-eye" style="position: relative;top: -27px;right: -90px;font-size: 18px;cursor: pointer;"></i>
+                        <ul>
+                            <li class="invalide" id="length">Votre Mot de passe doit etre aumoins de huit(08) Carractère</li>
+                            <li class="invalide" id="maj">Le Mot de passe doit comporter des majuscules </li>
+                            <li class="invalide" id="minu">Le Mot de passe doit comporter des minuscules </li>
+                            <li class="invalide" id="nombre">Le Mot de passe doit comporter des chiffres </li>
+                            <li class="invalide" id="spec">Le Mot de passe doit comporter des caractèrres speciaux telque "@ # ! $ £ & % *"</li>
+                        </ul>
+                    </div>                    
+                </p>
+                <p>
+                    <label for="password1" style="position: relative;top: 12px;">Comfirmer le mot de passe  </label>
+                    <div class="mdp2">
+                        <input type="password" id="password1" name="password1" placeholder="Confirmer mot de passe">
+                        <i class="fa-solid fa-eye" style="position: relative;top: -27px;right: -90px;font-size: 18px;cursor: pointer;"></i>
+                    </div>
+                    
+                </p>
+            </div>
+            <button type="submit" class="btn  btn-primary">S'inscrire</button>
+        </form>
+    </center>
+    <script src="https://kit.fontawesome.com/1d33382c77.js" crossorigin="anonymous"></script>
+    <script>
+        let input = document.querySelector('.mdp input');
+        let showbtn = document.querySelector('.mdp i');
+        showbtn.onclick = function(){
+            if(input.type === 'password'){
+                input.type = 'text'
+                showbtn.classList.add('active')
+            }else{                
+                input.type = 'password'
+                showbtn.classList.remove('active')
+            }
+        }
+        let input2 = document.querySelector('.mdp2 input');
+        let showbtn2 = document.querySelector('.mdp2 i');
+        showbtn2.onclick = function(){
+            if(input2.type === 'password'){
+                input2.type = 'text'
+                showbtn2.classList.add('active')
+            }else{ 
+                input2.type = 'password'
+                showbtn2.classList.remove('active')
+            }
+        }
+
+
+        window.onload = () => {
+            document.getElementById('password').addEventListener("input", checkpass)
+        }
+        
+        function checkpass() {
+            var input = this.value
+        
+            var maj = document.getElementById('maj')
+            var minu = document.getElementById('minu')
+            var num = document.getElementById('nombre')
+            var long = document.getElementById('length')
+            var spec = document.getElementById('spec')
+        
+            // verrifier la longuer du mot de passe
+            if(input.length >= 8){
+                long.classList.replace("invalide","valide")
+            }else{
+                long.classList.replace("valide","invalide")
+            }
+        
+            //On verrifie qu'on as une minuscules
+            if(/[a-z]/.test(input)){
+                minu.classList.replace("invalide","valide")
+            }else{
+                minu.classList.replace("valide","invalide")
+            }
+        
+            //On verrifie qu'on as une majuscules
+            if(/[A-Z]/.test(input)){
+                maj.classList.replace("invalide","valide")
+            }else{
+                maj.classList.replace("valide","invalide")
+            }
+        
+            //On verrifie qu'on as des chiffres
+            if(/[0-9]/.test(input)){
+                num.classList.replace("invalide","valide")
+            }else{
+                num.classList.replace("valide","invalide")
+            }
+        
+            //On verrifie qu'on as des caractere speciale
+            if(/[@#!$£&%*]/.test(input)){
+                spec.classList.replace("invalide","valide")
+            }else{
+                spec.classList.replace("valide","invalide")
+            }
+        }
+        
+        
+    </script>
+{% endblock  %}

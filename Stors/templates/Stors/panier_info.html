@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+
+{% block title %}
+    <title>Panier_info</title>
+{% endblock  %}
+
+{% block content %}
+   <div class="container">
+    <div class="row">
+        <h1 style='color: rgb(0, 0, 0);' class="text-center">Attention vous devez vous connecter avant de pouvoir avoire accès au panier s'il vous plait <strong
+                style='color: blue;'> <a href="{% url 'login' %}" class="text-decoration-none">CONNECTEZ</a> </strong> vous ou <strong style='color: blue;'> <a href="{% url 'signup' %}" class="text-decoration-none">INSCRIVEZ</a> </strong> vous pour avoir accès
+            as un panier</h1>
+    </div>
+   </div>
+{% endblock  %}

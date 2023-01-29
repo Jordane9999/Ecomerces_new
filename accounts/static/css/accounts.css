@@ -1,0 +1,99 @@
+#hi{
+    /* border: 2px solid rgb(204, 9, 9); */
+    text-decoration: underline;
+    width: 30%;
+    position: relative;
+    top: 80px;
+}
+
+#hl{
+    /* border: 2px solid rgb(204, 9, 9); */
+    text-decoration: underline;
+    width: 30%;
+    position: relative;
+    top: 20px;
+}
+
+#cfs{
+    border: 2px solid black;
+    width: 30%;
+    padding: 20px;
+    margin: 10% 0;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow:  inset 0 -3em 3em rgba(0,0,0,0.1),
+                    0 0  0 2px rgb(17, 16, 16),
+                    0.3em 0.3em 1em rgba(0,0,0,0.3);
+    
+
+}
+
+#cfsv div p label, input{
+    display: flex;
+    flex-direction: column;
+}
+
+/* #ctl{
+    border: 2px solid rgb(204, 9, 9);
+    
+} */
+
+.update form p label{
+    display: flex;
+    flex-direction: column;
+  
+}
+
+#lfs{
+    /* border: 2px solid rgb(204, 9, 9); */
+    margin: 50px 0px 50px 50px;
+    width: 30%;
+    padding: 80px;background-color: rgb(250, 244, 244);
+    border-radius: 5px;
+    box-shadow:  inset 0 -3em 3em rgba(0,0,0,0.1),
+                    0 0  0 2px rgb(17, 16, 16),
+                    0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+
+.mdp i.active::before{
+    content: '\f070';
+}
+
+.mdp2 i.active::before{
+    content: '\f070';
+}
+
+.mdp3 i.active::before{
+    content: '\f070';
+}
+
+/* .mdp ul{
+    /* border: 2px solid rgb(204, 9, 9); 
+} */
+
+.mdp ul li{
+    text-align: left;
+}
+
+.mdp ul .invalide{
+    list-style-type: none;
+    color: red;
+}
+
+.mdp ul .invalide::before{
+    position: relative;
+    left: -7px;
+    content: '\2715';
+}
+
+.mdp ul .valide{
+    list-style-type: none;
+    color: green;
+}
+
+.mdp ul .valide::before{
+    position: relative;
+    left: -7px;
+    content: '\2713';
+}
+

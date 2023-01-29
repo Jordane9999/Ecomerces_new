@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Roboto&display=swap');
+
+html, body{
+  height: 100%;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+}
+
+
+section{
+    margin-top: 20px;
+}
+
+#ac{
+    margin-bottom: 20px;
+}
+
+#ac #recherche{
+  text-decoration: none;
+  width: 40%;
+  margin: 0 auto;
+}
+
+#ins{
+    /* border: solid 2px blue; */
+    margin: 10px;
+}
+
+#drp{
+    border: solid 2px blue;
+    overflow: hidden;
+}
+#navb{
+    /* border: solid 2px blue; */
+    margin: 0 auto;
+}
+
+#navb li{
+    /* border: solid 2px rgb(9, 255, 0); */
+    margin: 0 4px;
+}
+
+#navb li a{
+    color: rgb(0, 0, 0);
+    font-family: 'Open Sans', 'Open Sans Regular', 'sans-serif';
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.2ms;
+}
+
+#navb li a:hover{
+    background-color: black;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+a.active{
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255) !important;
+    border-radius: 5px;
+}
+
+#ico{
+    border: solid 2px rgb(255, 255, 255);
+    border-radius: 40%;
+}
+
+/* !------------------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+.contenu{
+  flex-grow: 1;
+}
+
+.wrapper{
+  /* border: solid 2px rgb(8, 11, 238); */
+  margin-left: 35%;
+  display: inline-flex;
+}
+
+.wrapper .icon{
+  margin: 0 20px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon a{
+  display: block;
+  height: 40px;
+  width: 40px;
+  background: #fff;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+
+.wrapper .icon a img{
+    /* border: solid 2px rgb(238, 8, 39); */
+    margin-top: 8px;
+}
+
+.wrapper .icon .tooltip{
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  background: #fff;
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 25px;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip{
+  top: -70px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.icon .tooltip:before{
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  background: #fff;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%) rotate(45deg);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover a{
+  color: #fff;
+}
+
+.wrapper .icon:hover a,
+.wrapper .icon:hover .tooltip{
+  text-shadow: 0px -1px 0px rgba(0,0,0,0.4);
+}
+
+.wrapper .facebook:hover a,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip:before{
+  background: #3B5999;
+}
+
+.wrapper .twitter:hover a,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip:before{
+  background: #46C1F6;
+}
+
+.wrapper .whatsapp:hover a,
+.wrapper .whatsapp:hover .tooltip,
+.wrapper .whatsapp:hover .tooltip:before{
+  background: #84e970;
+}
+
+.wrapper .github:hover a,
+.wrapper .github:hover .tooltip,
+.wrapper .github:hover .tooltip:before{
+  background: #333;
+}
+
+.wrapper .youtube:hover a,
+.wrapper .youtube:hover .tooltip,
+.wrapper .youtube:hover .tooltip:before{
+  background: #DE463B;
+} 
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Roboto&family=Source+Code+Pro:wght@800&display=swap');
+
+#ftc{
+  text-decoration: none;
+  font-family: 'Source Code Pro', monospace;
+}
+
+#pu{
+  border: 0px ;
+}
+
+#pu li a{
+  text-decoration: none;
+  font-family: 'Source Code Pro', monospace;
+}
+
+#pu li a:hover{
+  text-decoration: underline;
+  color: blue;
+  background-color: #fff;
+}
+
+/* ?-----------------Stylisation de l'acceuil-------------------? */
+
+.produit h3{
+  /* border: 2px solid rgb(204, 9, 9); */
+  border-bottom: 5px solid rgb(0, 0, 0);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.produit h3 a{
+  position: relative;
+  right: 13px;
+  color: #fff;
+  padding: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: 'Source Code Pro', monospace;
+  background-color: #060707;
+}
+
+/* #produit_friperies{
+  border: 2px solid green;
+  display: flex;
+  overflow: hidden;
+} */
+
+.ic{
+  /* border: 2px solid rgb(204, 9, 9); */
+  height: 50px;
+  display: flex;
+  overflow: hidden;
+}
+
+.ic a{
+  /* border: 2px solid rgb(67, 9, 204); */
+  position: absolute;
+  top: 2px;
+}
+
+.ic1{
+  /* border: 2px solid rgb(100, 9, 204); */
+  line-height: 22px;
+  font-size: 2em;
+  margin-left: 60px;
+}
+.ic1 span{
+  /* border: 2px solid rgb(9, 204, 9); */
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.ic2{
+  font-size: large;
+  font-weight: bold;
+}
+
+
+#pdf{
+  /* border: 2px solid rgb(204, 9, 9)  ; */
+  width: 40%;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-top: 15%;
+  display: flex;
+}
+
+#pdf_logo{
+  /* border: 2px solid rgb(48, 9, 204); */
+  width: 120px;
+  height: 100px;
+  overflow: hidden;
+}
+
+#pdf_logobox{
+  /* border: 2px solid rgb(9, 3, 3); */
+  width: 120px;
+  height: 100px;
+  overflow: hidden;
+}
+
+#pdf_logo1{
+  /* border: 2px solid rgb(118, 35, 35); */
+  position: relative;
+  top : 10px;
+  right: 10px;
+  display: inline;
+  font-size: 150%;
+  font-weight: bold;
+  
+}
+
+#pdf_logo2{
+  /* border: 2px solid rgb(78, 119, 7); */
+  position: relative;
+  right: 10px;
+  display: inline;
+  font-size: 150%;
+  font-weight: bold;
+}
+
+#tb{
+  border: 2px solid rgb(7, 76, 119);
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+
+#cont{
+  /* border: 2px solid rgb(7, 76, 119); */
+  margin-top: 5%;
+}
+
+#tb2{
+  /* border: 2px solid rgb(4, 111, 72); */
+  width: 40%;
+  margin: 10px auto;
+}
